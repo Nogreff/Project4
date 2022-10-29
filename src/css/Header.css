@@ -1,0 +1,9 @@
+header{
+    display: flex;
+    justify-content: left;
+}
+header>img{
+    width: 8rem;
+    object-fit:cover;
+    margin: 1rem;
+}

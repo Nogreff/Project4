@@ -1,0 +1,108 @@
+.home_search{
+    background-image: url("../img/216-2165749_cute-wild-cats-backgrounds-wide-wallpapers-wild-cat.jpg");
+    background-repeat: no-repeat;
+    background-position-x:35%;
+    background-position-y: 30%;
+    height: 40rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.search_wrapper{
+    margin-top: 5rem;
+    display: flex;
+    flex-direction: column;
+    align-items:start;
+    height: 10rem;
+    
+}
+.cat_searcher{
+    width: 14rem;
+    height: 2rem;
+    border-style: none;
+    background-image: url("../img/search.png");
+    background-size: 1.3rem;
+    background-repeat: no-repeat;
+    background-position:13rem;
+    border-radius: 1rem;
+    padding: 0.5rem;
+}
+.search_options{
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 0 1rem;
+}
+.cat_searcher.focus_search{
+    background-image:none;
+}
+.cat_options{
+    display: flex;
+    flex-direction: column;
+    max-height: 7.6rem;
+    width: 15rem;
+    background: white; 
+    overflow: hidden;
+    overflow-y:auto;
+    visibility: hidden;
+    margin-left: 1rem;
+}
+@media(max-width:40rem){
+    .cat_searcher{
+       width: 8rem;
+       background-position:7rem;
+    }
+    .cat_options{
+        font-size: 0.8rem;
+        margin-left: 1rem;
+        margin-top: 0.1rem;
+        width: 9rem;
+
+    }
+}
+.cat_options.show{
+    visibility:visible;
+}
+.cat_options>a{
+    padding: 0.3rem 0;
+}
+.cat_options>a:hover{
+    cursor: pointer;
+}
+.cat_options>a:nth-child(even){
+    background: aliceblue;
+}
+.btn_adv_search{
+    margin-left: 1rem;
+    background: #118DF0;
+    padding: 1rem;
+    border-radius: 3rem;
+    color: white;
+    font-weight: 600;
+    letter-spacing: 0.2rem;
+}
+@media (max-width:40rem){
+    .btn_adv_search{
+        width:8rem;
+        font-size: 0.8rem;
+        letter-spacing: 0.1rem;
+        margin-left: 0.5rem;
+    }
+}
+.btn_adv_search>a:hover{
+    cursor: pointer;
+}
+.home_search>h1{
+    font-size: 3rem;
+    color: #118DF0;
+    margin: 0;
+}
+.home_search>p{
+    color: white;
+    text-align: justify;
+    padding: 1rem;
+    font-size: 1.2rem;
+    font-weight: 600;
+    backdrop-filter: blur(3px);
+}

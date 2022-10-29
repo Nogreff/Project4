@@ -1,0 +1,133 @@
+.cat_info{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
+}
+.info_profile{
+    max-width: 30rem;
+}
+.info_profile>h1{
+    font-size:3rem;
+}
+.info_profile>img{
+    width: min(30rem,90%);
+    object-fit: contain;
+    margin-bottom: 3rem;
+}
+
+.cat_perks>li{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+.info_data{
+    display: flex;
+    flex-direction: column;
+    justify-content:space-between;
+    align-items: center;
+    width: 40rem;
+}
+.info_data>h2{
+    width: 90%;
+    padding: 0;
+    color: white;
+    font-size: 2rem;
+}
+.info_data ul{
+    display: flex;
+    flex-direction: column;
+    list-style: none;
+    align-items: center;
+    padding: 0;
+    margin-bottom: 3rem;
+    border: 2px solid #118DF0;
+}
+.info_data ul li{
+    width: min(100%,40rem);
+    display: flex;
+    flex-direction: row;
+    font-size: 0.9rem;    
+}
+.data_title{
+    color: white;
+    font-size: 2rem;
+    background:#118DF0;
+    width: 100%;
+    padding: 0.2rem;
+    font-weight: 600;
+}
+.info_data ul li:nth-child(odd){
+    background: aliceblue;
+}
+.info_data ul li:nth-child(even){
+    background: white;
+}
+.data_name{
+    font-weight: 700;
+    padding: 1rem 0.5rem 1rem 2.5rem;
+    width: 5rem;
+    text-align: left;
+}
+.cat_ori{
+    background: url("../img/description/navigation.png");
+    background-size: 2rem;
+    background-repeat:  no-repeat;
+    background-position-y:50%;
+    background-position-x: 5%;
+
+}
+.cat_lif{
+    background:url("../img/description/heart-rate-monitor.png") ;
+    background-size:2rem;
+    background-repeat:no-repeat;
+    background-position-y:50%;
+    background-position-x:5% 
+}
+.cat_tem{
+    background:url("../img/description/pet.png");
+    background-size:2rem;
+    background-repeat:no-repeat;
+    background-position-y:10%;
+    background-position-x:5%
+}
+.cat_des{
+    background:url("../img/description/certificate.png");
+    background-size:2rem;
+    background-repeat:no-repeat;
+    background-position-y: 5%;
+    background-position-x:5%;
+}
+.data_description{
+    padding: 1rem;
+    text-align: justify;
+}
+.cat_fact{
+    background: aliceblue;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+.cat_fact>h1{
+    font-size: 2rem;
+    padding: 1rem;
+}
+.cat_perks{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    text-align: left;
+    padding: 0;
+    width: min(80rem,90%);
+}
+.cat_perks>li{
+    width: 20rem;
+}
+.perk_name{
+    width: 9rem;
+    font-weight: 600;
+}
+.cat_photo{
+    margin-bottom: 3rem;
+}

@@ -1,0 +1,18 @@
+.description_photo>h2{
+    font-size: 2rem;
+    padding: 1rem;
+}
+.photo_container{
+    display: flex;
+    flex-direction: row;
+    height: 20rem;
+    overflow-y: hidden;
+    overflow-x: scroll;
+    padding: 2rem 0;
+}
+.photo_container>img{
+    width: 20rem;
+    height: 20rem;
+    object-fit:cover;
+    margin: 0 0.5rem;
+}

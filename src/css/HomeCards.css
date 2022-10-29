@@ -1,0 +1,13 @@
+.home_card{
+    display: flex;
+    flex-direction: column;
+}
+.home_card>h1{
+    font-size: 2rem;
+    padding-top: 3rem;
+}
+.card_wrapper{
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+}
