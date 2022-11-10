@@ -14,7 +14,7 @@ function DescriptionPhoto(props) {
   return (
     <div className="description_photo">  
       <h2>Gallery</h2>
-      <div className="photo_container">
+      <div className={photos.length>4?"photo_container":"photo_container few_cards"}>
         {photos.map((value,index)=>{
          return(
             <img src={value.url}/>

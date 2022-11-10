@@ -90,7 +90,7 @@
         margin-left: 0.5rem;
     }
 }
-.btn_adv_search>a:hover{
+.btn_adv_search:hover{
     cursor: pointer;
 }
 .home_search>h1{

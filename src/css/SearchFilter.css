@@ -80,7 +80,10 @@
 }
 .filter_menu .accordion_box.active .box_label::before{
     content: "-";
-    color: white;
+    color: #add6f7;
+}
+.box_label:hover{
+    cursor: pointer;
 }
 .filter_menu .accordion_box .option_list{
     position: relative;

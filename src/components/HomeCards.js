@@ -41,18 +41,20 @@ function HomeCards(props) {
               
     }
   }
+ useEffect(()=>{
   if(mountCheck==true && randomCheck==false){
     console.log(randomCheck)
     setRandomCat(randomNum)
     setRandomCheck(true)
   }
+ },[mountCheck,randomCheck])
   return (
     <section className='home_card'>
       <h1>Over 60 breeds to discover</h1>
-      <div className='card_wrapper'>
+      <div className={'card_wrapper'}>
         
         {randomCat?randomCat.map((value,index)=>{
-          return(<CatCard catPhoto={value[1].image.url} catName={value[1].name} catInfo={value[1]}/>)
+          return(<CatCard catPhoto={value[1].image!==undefined?value[1].image.url:require("../img/noimg(2).png")} catName={value[1].name} catInfo={value[1]}/>)
         }):null}     
       </div>
     </section>

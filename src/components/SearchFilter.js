@@ -50,8 +50,8 @@ function SearchFilter(props) {
       if(groomRef===true){catA= catA + a.grooming; catB= catB + b.grooming}
       if(healtRef===true){catA= catA + a.health_issues; catB= catB + b.health_issues}
       if(intelRef===true){catA= catA + a.intelligence; catB= catB + b.intelligence}
-      if(sheddMin.className==="shedd_low shedd_selected"){catA= catA - a.shedding_level;catB= catB - b.shedding_level;setSheddCheck(true)}
-      if(sheddMax.className==="shedd_high shedd_selected"){catA= catA + a.shedding_level; catB= catB + b.shedding_level;setSheddCheck(true)}
+      if(sheddMin && sheddMin.className==="shedd_low shedd_selected"){catA= catA - a.shedding_level;catB= catB - b.shedding_level;setSheddCheck(true)}
+      if(sheddMax && sheddMax.className==="shedd_high shedd_selected"){catA= catA + a.shedding_level; catB= catB + b.shedding_level;setSheddCheck(true)}
       if(sociaRef===true){catA= catA + a.social_needs; catB= catB + b.social_needs}
       if(stranRef===true){catA= catA + a.stranger_friendly; catB= catB + b.stranger_friendly}
       if(vocalRef===true){catA= catA + a.vocalisation; catB= catB + b.vocalisation}

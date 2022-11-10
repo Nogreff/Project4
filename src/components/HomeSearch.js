@@ -53,8 +53,8 @@ function HomeSearch(props) {
   console.log(focusRef)
   return (
     <section className='home_search'> 
-      <h1>Tellus orci</h1>
-      <p>placerat duis ultricies lacus sed turpis tincidunt id aliquet risus feugiat in ante metus dictum</p> 
+      <h1>Find your new favorite cat</h1>
+      <p>And learn more about his breed</p> 
       <div className='search_wrapper'>
         <div className="search_options">
           <input type="text" ref={focusRef} onBlur={()=>focusSearch(false)} onFocus={()=>focusSearch(true)} onChange={e=>catFilter(e.target.value)} className="cat_searcher"/>

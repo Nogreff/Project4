@@ -5,5 +5,8 @@ header{
 header>img{
     width: 8rem;
     object-fit:cover;
-    margin: 1rem;
+    margin: 2rem 0 2rem 3rem;
+}
+header>img:hover{
+    cursor: pointer;
 }
