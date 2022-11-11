@@ -25,23 +25,15 @@ function SearchFilter(props) {
   const primaryNav=useRef();
   const navToggle=useRef();
   const [accSelect,setAccSelect]=useState(null);
+
   const checker =()=>{
-      let catsToFilter=cats
+      let catsToFilter
 /*     adaptRef.current.checked&& perksum + cats[0].adaptRef.current.value
     affecRef.current.checked&& perkSum + cats[0].adaptRef.current.value */
-      setChildRef(document.querySelector(".chi_fri").checked)
-      setAdaptRef(document.querySelector(".adapt").checked)
-      setAffecRef(document.querySelector(".aff_lev").checked)
-      setDogfrRef(document.querySelector(".dog_fri").checked)
-      setEnergRef(document.querySelector(".ene_lev").checked)
-      setGroomRef(document.querySelector(".groom").checked)
-      setHealtRef(document.querySelector(".hea_iss").checked)
-      setIntelRef(document.querySelector(".intel").checked)
-      setSociaRef(document.querySelector(".soc_nee").checked)
-      setStranRef(document.querySelector(".str_fri").checked)
-      setVocalRef(document.querySelector(".vocal").checked)
+    
     catsToFilter = cats.slice().sort(function(a,b){
       let catA=0,catB=0
+      console.log(childRef)
       if(adaptRef===true){catA= catA + a.adaptability; catB=catB + b.adaptability}
       if(affecRef===true){catA= catA + a.affection_level; catB= catB + b.affection_level}
       if(childRef===true){catA= catA + a.child_friendly; catB= catB + b.child_friendly}
@@ -69,6 +61,7 @@ function SearchFilter(props) {
     if(cardMin!==0){
       listTrack(1)
     }
+    console.log(catsToFilter)
     setCatFiltered(catsToFilter)
   }
   const resetCheck=()=>{
@@ -100,6 +93,8 @@ function SearchFilter(props) {
    document.querySelector(".shedd_low").classList.value="shedd_low shedd_selected"
    document.querySelector(".shedd_high").classList.value="shedd_high"
    setSheddCheck(false)
+   setSheddMax("")
+   setSheddMin("")
     setCardMax(10)
     setCardMin(0)
     //catOrder.current.value=""
@@ -112,8 +107,6 @@ function SearchFilter(props) {
     if(cardMin!==0){
       listTrack(1)
     }
-    console.log(catReset)
-    console.log("reset'd")
     }
 
   }
@@ -159,13 +152,13 @@ function SearchFilter(props) {
       selectBox[x]=e.currentTarget
       setAccordionBox(selectBox)
       setAccSelect(x)
-      console.log(accordionBox)
+
     }   
   }
   
   useEffect(()=>{
     if(accordionBox && accordionBox.length>0){
-      console.log(accordionBox)
+
       if(accSelect===null){
         let x=accordionBox
         const filtAccordion=document.getElementsByClassName("accordion_box")
@@ -186,7 +179,6 @@ function SearchFilter(props) {
     }
   },[sheddCheck])
   const menuRange=(shedd)=>{
-    console.log(document.querySelector(".shedd_low"))
     if(shedd.target.className==="shedd_low"){
       document.querySelector(".shedd_low").classList.add("shedd_selected")
       document.querySelector(".shedd_high").classList.remove("shedd_selected")
@@ -232,7 +224,19 @@ function SearchFilter(props) {
  if(document.querySelector(".vocal") && vocalRef===true){
   document.querySelector(".vocal").checked=true
  }
-
+const checkUpdate=()=>{
+  setChildRef(document.querySelector(".chi_fri").checked)
+  setAdaptRef(document.querySelector(".adapt").checked)
+  setAffecRef(document.querySelector(".aff_lev").checked)
+  setDogfrRef(document.querySelector(".dog_fri").checked)
+  setEnergRef(document.querySelector(".ene_lev").checked)
+  setGroomRef(document.querySelector(".groom").checked)
+  setHealtRef(document.querySelector(".hea_iss").checked)
+  setIntelRef(document.querySelector(".intel").checked)
+  setSociaRef(document.querySelector(".soc_nee").checked)
+  setStranRef(document.querySelector(".str_fri").checked)
+  setVocalRef(document.querySelector(".vocal").checked)
+}
             
   return (
     <div className="filter_wrapper">
@@ -243,9 +247,9 @@ function SearchFilter(props) {
             <h3>Good with</h3>
           </div>
           <div className="option_list">
-            <div className="check_wrapper dog_friendly"><input type="checkbox" className="dog_fri" value="dog_friendly"/></div>
-            <div className="check_wrapper child_friendly"><input type="checkbox" className="chi_fri" value="child_friendly"/></div>
-            <div className="check_wrapper stranger_friendly"><input type="checkbox" className="str_fri" value="stranger_friendly"/></div>
+            <div className="check_wrapper dog_friendly"><input type="checkbox" className="dog_fri" value="dog_friendly" onClick={checkUpdate}/></div>
+            <div className="check_wrapper child_friendly"><input type="checkbox" className="chi_fri" value="child_friendly" onClick={checkUpdate}/></div>
+            <div className="check_wrapper stranger_friendly"><input type="checkbox" className="str_fri" value="stranger_friendly" onClick={checkUpdate}/></div>
           </div>
         </div>
         <div className="accordion_box" onClick={e=>accordionToggle(e,1)}>
@@ -253,9 +257,9 @@ function SearchFilter(props) {
             <h3>Activity level</h3>
           </div>
           <div className="option_list">
-             <div className="check_wrapper energy_level"><input type="checkbox" className="ene_lev" value="energy_level"/></div>
-             <div className="check_wrapper social_needs"><input type="checkbox" className="soc_nee" value="social_needs"/></div>
-             <div className="check_wrapper affection_level"><input type="checkbox" className="aff_lev" value="affection_level"/></div>
+             <div className="check_wrapper energy_level"><input type="checkbox" className="ene_lev" value="energy_level" onClick={checkUpdate}/></div>
+             <div className="check_wrapper social_needs"><input type="checkbox" className="soc_nee" value="social_needs" onClick={checkUpdate}/></div>
+             <div className="check_wrapper affection_level"><input type="checkbox" className="aff_lev" value="affection_level" onClick={checkUpdate}/></div>
           </div>
         </div>
         <div className="accordion_box" onClick={e=>accordionToggle(e,2)}>
@@ -276,11 +280,11 @@ function SearchFilter(props) {
             <h3>Others</h3>
           </div>
           <div className="option_list">
-             <div className="check_wrapper adaptability"><input type="checkbox" className="adapt" value="adaptability"/></div>
-             <div className="check_wrapper grooming"><input type="checkbox" className="groom" value="grooming"/></div>
-             <div className="check_wrapper health_issues"><input type="checkbox" className="hea_iss" value="health_issues"/></div>
-             <div className="check_wrapper intelligence"><input type="checkbox" className="intel" value="intelligence"/></div>
-             <div className="check_wrapper vocalisation"><input type="checkbox" className="vocal" value="vocalisation"/></div>
+             <div className="check_wrapper adaptability"><input type="checkbox" className="adapt" value="adaptability" onClick={checkUpdate}/></div>
+             <div className="check_wrapper grooming"><input type="checkbox" className="groom" value="grooming" onClick={checkUpdate}/></div>
+             <div className="check_wrapper health_issues"><input type="checkbox" className="hea_iss" value="health_issues" onClick={checkUpdate}/></div>
+             <div className="check_wrapper intelligence"><input type="checkbox" className="intel" value="intelligence" onClick={checkUpdate}/></div>
+             <div className="check_wrapper vocalisation"><input type="checkbox" className="vocal" value="vocalisation" onClick={checkUpdate}/></div>
           </div>
         </div>
         <ul className="filter_btns">

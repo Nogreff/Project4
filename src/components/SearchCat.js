@@ -67,17 +67,15 @@ function SearchCat(){
             console.log(pageTrack,pageFocus,latestPage)
         }
     },[pageFocus,pageTrack]) */
+    console.log(catFiltered)
     useEffect(()=>{
         
         if(filterOrder===false && catFilter.length>1){
             setCatFilter(catFiltered.slice(cardMin,cardMax))
-            console.log("uno")
         }else if(filterOrder===true && catFilter.length>1){
-            console.log("dos")
             setCatFilter(catFiltered.slice(0).reverse().slice(cardMin,cardMax))
         }
         if(location.state.catData && catFilter.length<=0){
-            console.log("tres")
             setCatFilter(location.state.catData.slice(cardMin,cardMax))
             setCatFiltered(location.state.catData)
         }
@@ -86,7 +84,6 @@ function SearchCat(){
     useEffect(()=>{
         if(document.querySelector(".page_1") && pageFocus===null && pageTrack===1){
             document.querySelector(".page_1").classList.add("focused")
-            console.log("focus'd")
             setNavLive(true)
         }else if(pageFocus && pageFocus.className.includes("focused") && navLive==false){
             //let setLatest=latestPage
@@ -94,14 +91,9 @@ function SearchCat(){
             //currentPage.current.className=currentPage.current.className+" focused"
             //setLatest.current.className=setLatest.current.className.substring(0,setLatest.current.className.lastIndexOf(" "))
             listTrack(pageTrack)
-            console.log("booooom")
             setNavLive(true)
         }
     },[pageTrack,pageFocus])
-    console.log(pageTrack)//1//4
-    console.log(pageFocus)//null//obj
-    console.log(latestPage)//obj{...page1}//li
-    console.log(navLive)
     return(
         <section className="search_cat">
 {/*             <select ref={catOrder} required="" id="alpha_order">
