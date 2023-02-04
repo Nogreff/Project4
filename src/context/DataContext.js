@@ -44,9 +44,28 @@ export const DataProvider = ({ children }) => {
 		}
 		setLatestPage(navPage[track - 1]);
 	};
+	const imgFormat = imageId => {
+		let finalFormat;
+		if (imageId === undefined) {
+			finalFormat = require('../img/noimg(2).png');
+			return finalFormat;
+		}
+
+		if (
+			imageId === 'O3btzLlsO' ||
+			imageId === '4RzEwvyzz' ||
+			imageId === 'DbwiefiaY'
+		) {
+			finalFormat = 'https://cdn2.thecatapi.com/images/' + imageId + '.png';
+		} else {
+			finalFormat = 'https://cdn2.thecatapi.com/images/' + imageId + '.jpg';
+		}
+		return finalFormat;
+	};
 	return (
 		<DataContext.Provider
 			value={{
+				imgFormat,
 				navToggle,
 				primaryNav,
 				catCheck,

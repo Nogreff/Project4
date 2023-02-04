@@ -28,11 +28,12 @@ function Description(props) {
 				<div className='info_profile'>
 					<h1>{location.state.catDescription.name}</h1>
 					<img
-						src={
-							'https://cdn2.thecatapi.com/images/' +
-							location.state.catDescription.reference_image_id +
-							'.jpg'
-						}
+						referrerPolicy='no-referrer'
+						src={location.state.mainImg}
+						style={{
+							aspectRatio: 1,
+							resizeMode: 'contain',
+						}}
 					/>
 				</div>
 				<div className='info_data'>

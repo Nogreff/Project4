@@ -54,6 +54,24 @@ function HomeCards(props) {
 			randomCatCardFiller(x);
 		}
 	}
+	const imgFormat = imageId => {
+		let finalFormat;
+		if (imageId === undefined) {
+			finalFormat = require('../img/noimg(2).png');
+			return finalFormat;
+		}
+
+		if (
+			imageId === 'O3btzLlsO' ||
+			imageId === '4RzEwvyzz' ||
+			imageId === 'DbwiefiaY'
+		) {
+			finalFormat = 'https://cdn2.thecatapi.com/images/' + imageId + '.png';
+		} else {
+			finalFormat = 'https://cdn2.thecatapi.com/images/' + imageId + '.jpg';
+		}
+		return finalFormat;
+	};
 	useEffect(() => {
 		if (
 			catData &&
@@ -73,13 +91,7 @@ function HomeCards(props) {
 					? randomCat.map((value, index) => {
 							return (
 								<CatCard
-									catPhoto={
-										value.reference_image_id !== undefined
-											? 'https://cdn2.thecatapi.com/images/' +
-											  value.reference_image_id +
-											  '.jpg'
-											: require('../img/noimg(2).png')
-									}
+									catPhoto={imgFormat(value.reference_image_id)}
 									catReference={value.reference_image_id}
 									catName={value.name}
 									catInfo={value}

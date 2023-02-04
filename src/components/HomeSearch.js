@@ -10,10 +10,7 @@ function HomeSearch(props) {
 	const focusRef = useRef('');
 	const navigate = useNavigate();
 	const catOptions = document.querySelector('.cat_options');
-	const choosedCat = cat => {
-		console.log(cat);
-		navigate('/Description', { state: { catDescription: cat } });
-	};
+	// const choosedCat = (e, cat) => {};
 	const catFilter = catName => {
 		setNameEntered(catName);
 		const filteredCat = Object.entries(catData).filter(value => {
@@ -48,6 +45,24 @@ function HomeSearch(props) {
 			}
 		}
 	}, [nameEntered]);
+	const imgFormat = imageId => {
+		let finalFormat;
+		if (imageId === undefined) {
+			finalFormat = require('../img/noimg(2).png');
+			return finalFormat;
+		}
+
+		if (
+			imageId === 'O3btzLlsO' ||
+			imageId === '4RzEwvyzz' ||
+			imageId === 'DbwiefiaY'
+		) {
+			finalFormat = 'https://cdn2.thecatapi.com/images/' + imageId + '.png';
+		} else {
+			finalFormat = 'https://cdn2.thecatapi.com/images/' + imageId + '.jpg';
+		}
+		return finalFormat;
+	};
 	return (
 		<section className='home_search'>
 			<h1>Find your new favorite cat</h1>
@@ -70,7 +85,12 @@ function HomeSearch(props) {
 								<a
 									onClick={e => {
 										e.preventDefault();
-										choosedCat(catValue[1]);
+										navigate('/Description', {
+											state: {
+												catDescription: catValue[1],
+												mainImg: imgFormat(catValue[1].reference_image_id),
+											},
+										});
 									}}
 									key={index}
 								>

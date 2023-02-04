@@ -1,18 +1,9 @@
 import PropTypes from 'prop-types';
 import '../css/CatCard.css';
 import { useNavigate } from 'react-router-dom';
-import { useState } from 'react';
 function CatCard(props) {
-	const { catPhoto, catName, catInfo, catReference } = props;
-	const [imageCheck, setImageCheck] = useState(null);
+	const { catPhoto, catName, catInfo } = props;
 	const navigate = useNavigate();
-	const alternativeImage = e => {
-		setImageCheck('https://cdn2.thecatapi.com/images/' + catReference + '.png');
-		e.target.src = imageCheck;
-	};
-	if (catReference !== undefined && imageCheck === null) {
-		setImageCheck(catPhoto);
-	}
 	return (
 		<div
 			className='cat_card'
@@ -22,8 +13,7 @@ function CatCard(props) {
 		>
 			<img
 				referrerPolicy='no-referrer'
-				src={catReference === undefined ? catPhoto : catPhoto}
-				onError={e => alternativeImage(e)}
+				src={catPhoto}
 				style={{
 					aspectRatio: 1,
 					resizeMode: 'contain',

@@ -30,6 +30,7 @@ function SearchCat() {
 		setCatFiltered,
 		catFilter,
 		setCatFilter,
+		imgFormat,
 	} = useContext(DataContext);
 	const [navLive, setNavLive] = useState(false);
 	const location = useLocation();
@@ -107,6 +108,7 @@ function SearchCat() {
 			setNavLive(true);
 		}
 	}, [pageTrack, pageFocus]);
+
 	return (
 		<section className='search_cat'>
 			<div className='cat_menu'>
@@ -122,13 +124,7 @@ function SearchCat() {
 						{catFilter.map((value, index) => {
 							return (
 								<CatCard
-									catPhoto={
-										value.reference_image_id !== undefined
-											? 'https://cdn2.thecatapi.com/images/' +
-											  value.reference_image_id +
-											  '.jpg'
-											: require('../img/noimg(2).png')
-									}
+									catPhoto={imgFormat(value.reference_image_id)}
 									catReference={value.reference_image_id}
 									catName={value.name}
 									catInfo={value}
