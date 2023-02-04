@@ -7,10 +7,11 @@ function HomeSearch(props) {
 	const { catData } = props;
 	const [filteredData, setFilteredData] = useState([]);
 	const [nameEntered, setNameEntered] = useState('');
-	const focusRef = useRef();
+	const focusRef = useRef('');
 	const navigate = useNavigate();
 	const catOptions = document.querySelector('.cat_options');
 	const choosedCat = cat => {
+		console.log(cat);
 		navigate('/Description', { state: { catDescription: cat } });
 	};
 	const catFilter = catName => {
@@ -26,13 +27,15 @@ function HomeSearch(props) {
 	};
 
 	const focusSearch = inputFocus => {
+		let localFocusRef = null;
+		if (focusRef.current) localFocusRef = focusRef.current;
 		if (inputFocus === true) {
-			focusRef.current.classList.add('focus_search');
+			localFocusRef.classList.add('focus_search');
 		} else if (inputFocus === false) {
 			setTimeout(() => {
-				focusRef.current.value = '';
+				localFocusRef.value = '';
 				setFilteredData([]);
-				focusRef.current.classList.remove('focus_search');
+				localFocusRef.classList.remove('focus_search');
 			}, 100);
 		}
 	};
@@ -62,15 +65,19 @@ function HomeSearch(props) {
 						/>
 					</div>
 					<div className='cat_options'>
-						{filteredData != null
-							? filteredData.map((catValue, index) => {
-									return (
-										<a onClick={() => choosedCat(catValue[1])} key={index}>
-											{catValue[1].name}
-										</a>
-									);
-							  })
-							: null}
+						{filteredData.map((catValue, index) => {
+							return (
+								<a
+									onClick={e => {
+										e.preventDefault();
+										choosedCat(catValue[1]);
+									}}
+									key={index}
+								>
+									{catValue[1].name}
+								</a>
+							);
+						})}
 					</div>
 				</div>
 				<a

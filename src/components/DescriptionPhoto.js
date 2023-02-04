@@ -23,7 +23,7 @@ function DescriptionPhoto(props) {
 }
 
 DescriptionPhoto.propTypes = {
-	photo: PropTypes.string,
+	photo: PropTypes.array,
 };
 
 export default DescriptionPhoto;

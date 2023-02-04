@@ -21,6 +21,7 @@ function CatCard(props) {
 			}
 		>
 			<img
+				referrerPolicy='no-referrer'
 				src={catReference === undefined ? catPhoto : catPhoto}
 				onError={e => alternativeImage(e)}
 				style={{
