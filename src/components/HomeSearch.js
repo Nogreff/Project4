@@ -50,33 +50,35 @@ function HomeSearch(props) {
 			<h1>Find your new favorite cat</h1>
 			<p>And learn more about his breed</p>
 			<div className='search_wrapper'>
-				<div className='search_options'>
-					<input
-						type='text'
-						ref={focusRef}
-						onBlur={() => focusSearch(false)}
-						onFocus={() => focusSearch(true)}
-						onChange={e => catFilter(e.target.value)}
-						className='cat_searcher'
-					/>
-					<a
-						className='btn_adv_search'
-						onClick={() => navigate('/SearchCat', { state: { catData } })}
-					>
-						Advanced search
-					</a>
+				<div className='search_options_wrapper'>
+					<div className='search_options'>
+						<input
+							type='text'
+							ref={focusRef}
+							onBlur={() => focusSearch(false)}
+							onFocus={() => focusSearch(true)}
+							onChange={e => catFilter(e.target.value)}
+							className='cat_searcher'
+						/>
+					</div>
+					<div className='cat_options'>
+						{filteredData != null
+							? filteredData.map((catValue, index) => {
+									return (
+										<a onClick={() => choosedCat(catValue[1])} key={index}>
+											{catValue[1].name}
+										</a>
+									);
+							  })
+							: null}
+					</div>
 				</div>
-				<div className='cat_options'>
-					{filteredData != null
-						? filteredData.map((catValue, index) => {
-								return (
-									<a onClick={() => choosedCat(catValue[1])} key={index}>
-										{catValue[1].name}
-									</a>
-								);
-						  })
-						: null}
-				</div>
+				<a
+					className='btn_adv_search'
+					onClick={() => navigate('/SearchCat', { state: { catData } })}
+				>
+					Advanced search
+				</a>
 			</div>
 		</section>
 	);
