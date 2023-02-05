@@ -10,7 +10,6 @@ function HomeSearch(props) {
 	const focusRef = useRef('');
 	const navigate = useNavigate();
 	const catOptions = document.querySelector('.cat_options');
-	// const choosedCat = (e, cat) => {};
 	const catFilter = catName => {
 		setNameEntered(catName);
 		if (catName.length > 0) {
@@ -93,7 +92,6 @@ function HomeSearch(props) {
 					<div className='cat_options'>
 						{filteredData != null
 							? filteredData.map(catValue => {
-									// const mainImg = imgFormat(catValue[1].reference_image_id);
 									return (
 										<a
 											key={catValue[0]}
@@ -101,7 +99,6 @@ function HomeSearch(props) {
 												e,
 												mainImg = imgFormat(catValue[1].reference_image_id)
 											) => {
-												e.persist();
 												goToDescription(e, catValue[1], mainImg);
 												console.log('working');
 											}}

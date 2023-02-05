@@ -88,6 +88,7 @@
 	font-weight: 600;
 	letter-spacing: 0.2rem;
 	height: fit-content;
+	transition: background 300ms ease-in;
 }
 @media (max-width: 40rem) {
 	.btn_adv_search {
@@ -110,6 +111,7 @@
 }
 .btn_adv_search:hover {
 	cursor: pointer;
+	background: #add6f7;
 }
 .home_search > h1 {
 	font-size: 3rem;

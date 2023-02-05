@@ -17,7 +17,6 @@ function CatCard(props) {
 			}
 		>
 			<img
-				referrerPolicy='no-referrer'
 				src={catPhoto}
 				style={{
 					aspectRatio: 1,
