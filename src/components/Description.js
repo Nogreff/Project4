@@ -28,7 +28,6 @@ function Description(props) {
 				<div className='info_profile'>
 					<h1>{location.state.catDescription.name}</h1>
 					<img
-						referrerPolicy='no-referrer'
 						src={location.state.mainImg}
 						style={{
 							aspectRatio: 1,

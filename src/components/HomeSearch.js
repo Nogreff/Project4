@@ -13,13 +13,15 @@ function HomeSearch(props) {
 	// const choosedCat = (e, cat) => {};
 	const catFilter = catName => {
 		setNameEntered(catName);
-		const filteredCat = Object.entries(catData).filter(value => {
-			return value[1].name.toLowerCase().includes(catName.toLowerCase());
-		});
-		if (nameEntered === '') {
-			setFilteredData([]);
-		} else {
-			setFilteredData(filteredCat);
+		if (catName.length > 0) {
+			const filteredCat = Object.entries(catData).filter(value => {
+				return value[1].name.toLowerCase().includes(catName.toLowerCase());
+			});
+			if (nameEntered === '') {
+				setFilteredData([]);
+			} else {
+				setFilteredData(filteredCat.slice(0, 6));
+			}
 		}
 	};
 
@@ -49,7 +51,7 @@ function HomeSearch(props) {
 		let finalFormat;
 		if (imageId === undefined) {
 			finalFormat = require('../img/noimg(2).png');
-			return finalFormat;
+			return finalFormat.toString();
 		}
 
 		if (
@@ -61,7 +63,16 @@ function HomeSearch(props) {
 		} else {
 			finalFormat = 'https://cdn2.thecatapi.com/images/' + imageId + '.jpg';
 		}
-		return finalFormat;
+		return finalFormat.toString();
+	};
+	const goToDescription = (e, cat, mainImg) => {
+		e.preventDefault();
+		navigate('/Description', {
+			state: {
+				catDescription: cat,
+				mainImg,
+			},
+		});
 	};
 	return (
 		<section className='home_search'>
@@ -80,24 +91,26 @@ function HomeSearch(props) {
 						/>
 					</div>
 					<div className='cat_options'>
-						{filteredData.map((catValue, index) => {
-							return (
-								<a
-									onClick={e => {
-										e.preventDefault();
-										navigate('/Description', {
-											state: {
-												catDescription: catValue[1],
-												mainImg: imgFormat(catValue[1].reference_image_id),
-											},
-										});
-									}}
-									key={index}
-								>
-									{catValue[1].name}
-								</a>
-							);
-						})}
+						{filteredData != null
+							? filteredData.map(catValue => {
+									// const mainImg = imgFormat(catValue[1].reference_image_id);
+									return (
+										<a
+											key={catValue[0]}
+											onMouseDown={(
+												e,
+												mainImg = imgFormat(catValue[1].reference_image_id)
+											) => {
+												e.persist();
+												goToDescription(e, catValue[1], mainImg);
+												console.log('working');
+											}}
+										>
+											{catValue[1].name}
+										</a>
+									);
+							  })
+							: null}
 					</div>
 				</div>
 				<a
