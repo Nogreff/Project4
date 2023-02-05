@@ -8,7 +8,12 @@ function CatCard(props) {
 		<div
 			className='cat_card'
 			onClick={() =>
-				navigate('/Description', { state: { catDescription: catInfo } })
+				navigate('/Description', {
+					state: {
+						catDescription: catInfo,
+						mainImg: catPhoto,
+					},
+				})
 			}
 		>
 			<img

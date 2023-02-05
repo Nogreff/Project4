@@ -15,7 +15,8 @@
 	font-size: 3rem;
 }
 .info_profile > img {
-	width: min(30rem, 90%);
+	max-width: 30rem;
+	max-height: 30rem;
 	object-fit: contain;
 	margin-bottom: 3rem;
 }
