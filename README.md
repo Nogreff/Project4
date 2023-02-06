@@ -25,3 +25,7 @@ When you click a picture of a cat you can see their information and breed charac
 * CSS 
 * JavaScript
 * ReactJS
+<br></br>
+## API information:
+* API website: https://thecatapi.com/
+* API documentation: https://developers.thecatapi.com/view-account/ylX4blBYT9FaoVd6OhvR?report=bOoHBz-8t
